@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# Configured as part of the DigitalOcean 1-Click Image build process
+
+myip=$(hostname -I | awk '{print$1}')
+cat <<EOF
+********************************************************************************
+
+Welcome to DigitalOcean's 1-Click Matrix (Synapse) Droplet.
+To keep this Droplet secure, the UFW firewall is enabled.
+All ports are BLOCKED except 22 (SSH), 80 (HTTP), 443 (HTTPS), and 8448 (Matrix)
+
+Your public ipv4 address is: $myip
+
+In a web browser, you can view:
+  * Element: https://chat.yourdomain.com
+
+On the server:
+  * All secrets have been stored in /root/.matrix-synapse-secrets
+  * To register a new user, use the following command:
+    register_new_matrix_user -c /etc/matrix-synapse/homeserver.yaml
+
+For help and more information, visit https://do.co/2GOFe5J
+
+********************************************************************************
+To delete this message of the day: rm -rf $(readlink -f ${0})
+EOF

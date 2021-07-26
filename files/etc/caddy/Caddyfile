@@ -1,0 +1,15 @@
+matrix.yourdomain.com {
+  proxy /_matrix http://localhost:8008 {
+    transparent
+  }
+
+  proxy /_synapse/client http://localhost:8008 {
+    transparent
+  }
+}
+
+yourdomain.com:8448 {
+  proxy / http://localhost:8008 {
+    transparent
+  }
+}
