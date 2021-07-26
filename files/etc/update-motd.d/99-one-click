@@ -6,7 +6,7 @@ myip=$(hostname -I | awk '{print$1}')
 cat <<EOF
 ********************************************************************************
 
-Welcome to DigitalOcean's 1-Click Matrix (Synapse) Droplet.
+Welcome to DigitalOcean's 1-Click Matrix Droplet.
 To keep this Droplet secure, the UFW firewall is enabled.
 All ports are BLOCKED except 22 (SSH), 80 (HTTP), 443 (HTTPS), and 8448 (Matrix)
 
@@ -16,7 +16,7 @@ In a web browser, you can view:
   * Element: https://chat.yourdomain.com
 
 On the server:
-  * All secrets have been stored in /root/.matrix-synapse-secrets
+  * All secrets have been stored in /root/.matrix-secrets
   * To register a new user, use the following command:
     register_new_matrix_user -c /etc/matrix-synapse/homeserver.yaml
 

@@ -1,9 +1,9 @@
 {
   "variables": {
     "do_token": "{{env `DIGITALOCEAN_TOKEN`}}",
-    "image_name": "matrix-synapse-debian-10-snapshot-{{timestamp}}",
+    "image_name": "matrix-debian-10-snapshot-{{timestamp}}",
     "apt_packages": "debian-keyring debian-archive-keyring lsb-release wget apt-transport-https",
-    "application_name": "Matrix (Synapse)",
+    "application_name": "Matrix",
     "application_version": "0.1.0"
   },
   "sensitive-variables": ["do_token"],

@@ -1,4 +1,4 @@
-# Getting started after deploying Synapse
+# Getting started after deploying Matrix
 
 ## Create your new server
 
