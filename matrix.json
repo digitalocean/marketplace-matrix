@@ -2,7 +2,8 @@
   "variables": {
     "do_token": "{{env `DIGITALOCEAN_TOKEN`}}",
     "image_name": "matrix-debian-10-snapshot-{{timestamp}}",
-    "apt_packages": "debian-keyring debian-archive-keyring lsb-release wget apt-transport-https sudo dnsutils"
+    "apt_packages": "debian-keyring debian-archive-keyring lsb-release wget apt-transport-https sudo dnsutils",
+    "element_version": "1.7.33"
   },
   "sensitive-variables": ["do_token"],
   "builders": [
@@ -44,7 +45,8 @@
         "DEBIAN_FRONTEND=noninteractive",
         "LC_ALL=C",
         "LANG=en_US.UTF-8",
-        "LC_CTYPE=en_US.UTF-8"
+        "LC_CTYPE=en_US.UTF-8",
+        "ELEMENT_VERSION={{user `element_version`}}"
       ],
       "scripts": [
         "scripts/0-postgres",

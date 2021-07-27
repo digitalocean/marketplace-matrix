@@ -14,6 +14,16 @@ die() {
     exit 1
 }
 
+print_dots() {
+    printf "."
+    sleep 1
+    printf "."
+    sleep 1
+    printf "."
+    sleep 1
+    printf "\n\n\n"
+}
+
 printf "Enter your custom domain name, like so: example.com\n"
 printf "> "
 read domain
@@ -30,16 +40,13 @@ systemctl enable matrix-synapse
 systemctl start matrix-synapse
 
 printf "Matrix configuration complete.\n"
-sleep 1
-printf "."
-sleep 1
-printf "."
-sleep 1
-printf "."
-sleep 1
-printf "\n\n\n"
+print_dots
 
-printf "Now we must configure DNS. Please create the following A records:\n"
+sed "s/USERDOMAIN/$domain/g" -i /opt/element/config.json
+printf "Element configuration complete.\n"
+print_dots
+
+printf "Please create the following DNS A records:\n"
 printf "$domain -> $myip\n"
 printf "$matrix_prefix -> $myip\n"
 printf "$chat_prefix -> $myip\n"
@@ -47,15 +54,15 @@ printf "$chat_prefix -> $myip\n"
 if yn "Did you finish configuring DNS?"; then
     sed "s/USERDOMAIN/$domain/g" -i /etc/caddy/Caddyfile
 
-    printf "Waiting for $domain to resolve to $myip. This could take 5+ minutes...\n"
+    printf "Waiting for $domain to resolve to $myip... (this could take 5+ minutes)\n"
     until dig +short "$domain" | grep "$myip"; do
         printf "."
     done
-    printf "Waiting for $chat_prefix to resolve to $myip. This could take 5+ minutes...\n"
+    printf "Waiting for $chat_prefix to resolve to $myip... (this could take 5+ minutes)\n"
     until dig +short "$chat_prefix" | grep "$myip"; do
         printf "."
     done
-    printf "Waiting for $matrix_prefix to resolve to $myip. This could take 5+ minutes...\n"
+    printf "Waiting for $matrix_prefix to resolve to $myip... (this could take 5+ minutes)\n"
     until dig +short "$matrix_prefix" | grep "$myip"; do
         printf "."
     done
@@ -66,22 +73,11 @@ if yn "Did you finish configuring DNS?"; then
 else
     die "Cannot proceed unless DNS is configured."
 fi
-
-
 printf "Caddy configuration complete.\n"
-sleep 1
-printf "."
-sleep 1
-printf "."
-sleep 1
-printf "."
-sleep 1
-printf "\n\n\n"
+print_dots
 
 yn "Would you like to generate a matrix user?" && {
-    printf "Username?\n> "
-    read username
-    register_new_matrix_user -u "$username" -c /etc/matrix-synapse/homeserver.yaml http://localhost:8008
+    /root/new-user
 }
 
 printf "Matrix configuration is complete! You should be able to login at $chat_prefix\n"

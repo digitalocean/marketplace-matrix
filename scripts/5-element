@@ -1,0 +1,7 @@
+#!/bin/sh
+
+mkdir /opt/element
+cd /opt
+wget "https://github.com/vector-im/element-web/releases/download/v$ELEMENT_VERSION/element-v$ELEMENT_VERSION.tar.gz"
+tar -zxvf "element-v$ELEMENT_VERSION.tar.gz"
+ln -s "element-v$ELEMENT_VERSION" element
