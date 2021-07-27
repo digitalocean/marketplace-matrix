@@ -13,14 +13,12 @@ EOF
 fi
 
 # configure postgres
-sudo -u postgres psql -c "ALTER USER synapse PASSWORD '$synapse_postgres_pass';"
+sudo -u postgres psql -c "ALTER USER synapse_user PASSWORD '$synapse_postgres_pass';"
 
 # configure synapse
 sed "s/POSTGRES_PASSWORD/$synapse_postgres_pass/g" -i /etc/matrix-synapse/homeserver.yaml
 sed "s/REGISTRATION_SHARED_SECRET/$registration_shared_secret/g" -i /etc/matrix-synapse/homeserver.yaml
 sed "s/MACAROON_SECRET_KEY/$macaroon_secret_key/g" -i /etc/matrix-synapse/homeserver.yaml
-systemctl start matrix-synapse
-systemctl enable matrix-synapse
 
 # 
 

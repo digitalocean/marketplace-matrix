@@ -1,15 +1,8 @@
-matrix.CUSTOMDOMAIN {
-  proxy /_matrix http://localhost:8008 {
-    transparent
-  }
-
-  proxy /_synapse/client http://localhost:8008 {
-    transparent
-  }
+matrix.USERDOMAIN {
+  reverse_proxy /_matrix/* http://localhost:8008
+  reverse_proxy /_synapse/client/* http://localhost:8008
 }
 
-CUSTOMDOMAIN:8448 {
-  proxy / http://localhost:8008 {
-    transparent
-  }
+USERDOMAIN:8448 {
+  reverse_proxy http://localhost:8008
 }

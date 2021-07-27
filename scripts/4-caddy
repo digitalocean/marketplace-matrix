@@ -4,3 +4,6 @@ wget -O /etc/apt/trusted.gpg.d/caddy-stable.asc https://dl.cloudsmith.io/public/
 wget -O /etc/apt/sources.list.d/caddy-stable.list https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt
 sudo apt -qqy update
 sudo apt -qqy install caddy
+
+# we enable it in finish-setup
+systemctl disable caddy

@@ -5,3 +5,6 @@ echo "deb [signed-by=/usr/share/keyrings/matrix-org-archive-keyring.gpg] https:/
     tee /etc/apt/sources.list.d/matrix-org.list
 apt -qqy update
 apt -qqy install matrix-synapse-py3
+
+# we enable it in finish-setup
+systemctl disable matrix-synapse

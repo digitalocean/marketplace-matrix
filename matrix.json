@@ -2,7 +2,7 @@
   "variables": {
     "do_token": "{{env `DIGITALOCEAN_TOKEN`}}",
     "image_name": "matrix-debian-10-snapshot-{{timestamp}}",
-    "apt_packages": "debian-keyring debian-archive-keyring lsb-release wget apt-transport-https sudo"
+    "apt_packages": "debian-keyring debian-archive-keyring lsb-release wget apt-transport-https sudo dnsutils"
   },
   "sensitive-variables": ["do_token"],
   "builders": [
@@ -65,6 +65,11 @@
       "type": "file",
       "source": "files/var/",
       "destination": "/var/"
+    },
+    {
+      "type": "file",
+      "source": "files/root/",
+      "destination": "/root/"
     }
   ]
 }
