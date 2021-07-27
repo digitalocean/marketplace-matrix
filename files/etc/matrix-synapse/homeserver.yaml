@@ -2,12 +2,10 @@
 
 ## Server ##
 
-# TODO: inject server name??
-server_name: "SYNAPSE_SERVER_NAME"
 pid_file: /var/lib/matrix-synapse/homeserver.pid
 web_client: False
 soft_file_limit: 0
-log_config: "/etc/matrix-synapse/log.config"
+log_config: "/etc/matrix-synapse/log.yaml"
 
 ## Ports ##
 
@@ -122,8 +120,7 @@ expire_access_token: False
 
 ## Signing Keys ##
 
-# TODO: check on this
-signing_key_path: "/var/lib/matrix-synapse/signing.key"
+signing_key_path: "/etc/matrix-synapse/homeserver.signing.key"
 old_signing_keys: {}
 key_refresh_interval: "1d" # 1 Day.
 

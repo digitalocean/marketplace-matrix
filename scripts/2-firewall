@@ -2,6 +2,7 @@
 
 apt -y install ufw
 
+ufw default deny
 ufw limit ssh
 ufw allow 80 # http
 ufw allow 443 # https

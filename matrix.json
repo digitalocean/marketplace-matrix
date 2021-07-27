@@ -51,6 +51,7 @@
         "scripts/1-matrix",
         "scripts/2-firewall",
         "scripts/3-ssh",
+        "scripts/4-caddy",
         "scripts/8-cleanup",
         "scripts/9-check"
       ]

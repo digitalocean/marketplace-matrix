@@ -1,4 +1,4 @@
-matrix.yourdomain.com {
+matrix.CUSTOMDOMAIN {
   proxy /_matrix http://localhost:8008 {
     transparent
   }
@@ -8,7 +8,7 @@ matrix.yourdomain.com {
   }
 }
 
-yourdomain.com:8448 {
+CUSTOMDOMAIN:8448 {
   proxy / http://localhost:8008 {
     transparent
   }

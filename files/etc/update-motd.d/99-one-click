@@ -23,5 +23,5 @@ On the server:
 For help and more information, visit https://do.co/2GOFe5J
 
 ********************************************************************************
-To delete this message of the day: rm -rf $(readlink -f ${0})
+To delete this message of the day: rm $(readlink -f ${0})
 EOF
