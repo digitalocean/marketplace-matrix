@@ -72,6 +72,11 @@
       "type": "file",
       "source": "files/root/",
       "destination": "/root/"
+    },
+    {
+      "type": "file",
+      "source": "files/opt/",
+      "destination": "/opt/"
     }
   ]
 }
