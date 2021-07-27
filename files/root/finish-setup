@@ -22,10 +22,7 @@ matrix_prefix="matrix.${domain}"
 chat_prefix="chat.${domain}"
 myip="$(hostname -I | awk '{print $1}')"
 
-if yn "The domain you have entered is: $domain\nIs that correct?"; then
-else
-
-fi
+yn "The domain you have entered is: $domain\nIs that correct?" || die "Exiting cowardly"
 
 sed "s/USERDOMAIN/$domain/g" -i /etc/matrix-synapse/conf.d/server_name.yaml
 printf "Starting matrix-synapse (Synapse)...\n"
@@ -81,8 +78,10 @@ printf "."
 sleep 1
 printf "\n\n\n"
 
-if yn "Would you like to generate a matrix user?" && {
-    register_new_matrix_user -c /etc/matrix-synapse/homeserver.yaml
+yn "Would you like to generate a matrix user?" && {
+    printf "Username?\n> "
+    read username
+    register_new_matrix_user -u "$username" -c /etc/matrix-synapse/homeserver.yaml http://localhost:8008
 }
 
 printf "Matrix configuration is complete! You should be able to login at $chat_prefix\n"

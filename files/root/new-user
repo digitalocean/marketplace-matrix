@@ -1,0 +1,5 @@
+#!/bin/sh
+
+printf "Username?\n> "
+read username
+register_new_matrix_user -u "$username" -c /etc/matrix-synapse/homeserver.yaml http://localhost:8008
