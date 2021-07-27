@@ -27,7 +27,7 @@ listeners:
 database:
   name: "psycopg2"
   args:
-    user: "synapse"
+    user: "synapse_user"
     password: "POSTGRES_PASSWORD"
     database: "synapse"
     host: "127.0.0.1"
