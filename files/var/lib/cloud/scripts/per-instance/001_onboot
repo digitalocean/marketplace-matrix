@@ -6,29 +6,23 @@ macaroon_secret_key=$(openssl rand -hex 24)
 
 
 # Save the passwords
-cat > /root/.digitalocean_password <<EOM
-root_mysql_pass="${root_mysql_pass}"
-EOM
+cat > /root/.matrix-secrets <<EOF
+synapse_postgres_pass="${synapse_postgres_pass}"
+registration_shared_secret="${registration_shared_secret}"
+macaroon_secret_key="${macaroon_secret_key}"
+EOF
 
-# Configure MySQL root password
-mysqladmin -u root -h localhost password ${root_mysql_pass}
+# POSTGRES
+sudo -u postgres -c "ALTER USER postgres PASSWORD '$synapse_postgres_pass';"
 
-mysql -uroot -p${root_mysql_pass} \
-      -e "ALTER USER 'debian-sys-maint'@'localhost' IDENTIFIED BY '${debian_sys_maint_mysql_pass}'"
+# MATRIX
+# TODO: fill in homeserver.yaml passwords
+sed "s/POSTGRES_PASSWORD/$synapse_postgres_pass/g" -i /etc/matrix-synapse/homeserver.yaml
+sed "s/REGISTRATION_SHARED_SECRET/$registration_shared_secret/g" -i /etc/matrix-synapse/homeserver.yaml
+sed "s/MACAROON_SECRET_KEY/$macaroon_secret_key/g" -i /etc/matrix-synapse/homeserver.yaml
 
-cat > /etc/mysql/debian.cnf <<EOM
-# Automatically generated for Debian scripts. DO NOT TOUCH!
-[client]
-host     = localhost
-user     = debian-sys-maint
-password = ${debian_sys_maint_mysql_pass}
-socket   = /var/run/mysqld/mysqld.sock
-[mysql_upgrade]
-host     = localhost
-user     = debian-sys-maint
-password = ${debian_sys_maint_mysql_pass}
-socket   = /var/run/mysqld/mysqld.sock
-EOM
+systemctl start matrix-synapse
+systemctl enable matrix-synapse
 
 myip=$(hostname -I | awk '{print$1}')
 sed -e "s|server_name localhost|servername ${myip}|g" \

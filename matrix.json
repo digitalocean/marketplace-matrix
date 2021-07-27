@@ -2,9 +2,7 @@
   "variables": {
     "do_token": "{{env `DIGITALOCEAN_TOKEN`}}",
     "image_name": "matrix-debian-10-snapshot-{{timestamp}}",
-    "apt_packages": "debian-keyring debian-archive-keyring lsb-release wget apt-transport-https",
-    "application_name": "Matrix",
-    "application_version": "0.1.0"
+    "apt_packages": "debian-keyring debian-archive-keyring lsb-release wget apt-transport-https sudo"
   },
   "sensitive-variables": ["do_token"],
   "builders": [
@@ -26,16 +24,6 @@
       ]
     },
     {
-      "type": "file",
-      "source": "files/etc/",
-      "destination": "/etc/"
-    },
-    {
-      "type": "file",
-      "source": "files/var/",
-      "destination": "/var/"
-    },
-    {
       "type": "shell",
       "environment_vars": [
         "DEBIAN_FRONTEND=noninteractive",
@@ -53,20 +41,29 @@
     {
       "type": "shell",
       "environment_vars": [
-        "application_name={{user `application_name`}}",
-        "application_version={{user `application_version`}}",
         "DEBIAN_FRONTEND=noninteractive",
         "LC_ALL=C",
         "LANG=en_US.UTF-8",
         "LC_CTYPE=en_US.UTF-8"
       ],
       "scripts": [
+        "scripts/0-postgres",
         "scripts/1-matrix",
         "scripts/2-firewall",
         "scripts/3-ssh",
         "scripts/8-cleanup",
         "scripts/9-check"
       ]
+    },
+    {
+      "type": "file",
+      "source": "files/etc/",
+      "destination": "/etc/"
+    },
+    {
+      "type": "file",
+      "source": "files/var/",
+      "destination": "/var/"
     }
   ]
 }

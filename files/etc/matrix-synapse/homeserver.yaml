@@ -2,6 +2,7 @@
 
 ## Server ##
 
+# TODO: inject server name??
 server_name: "SYNAPSE_SERVER_NAME"
 pid_file: /var/lib/matrix-synapse/homeserver.pid
 web_client: False
@@ -95,8 +96,7 @@ turn_allow_guests: True
 ## Registration ##
 
 enable_registration: "False"
-# TODO
-registration_shared_secret: "SYNAPSE_REGISTRATION_SHARED_SECRET"
+registration_shared_secret: "REGISTRATION_SHARED_SECRET"
 bcrypt_rounds: 12
 allow_guest_access: "False"
 enable_group_creation: true
@@ -117,13 +117,12 @@ report_stats: False
 
 ## API Configuration ##
 
-# TODO
-macaroon_secret_key: "SYNAPSE_MACAROON_SECRET_KEY"
+macaroon_secret_key: "MACAROON_SECRET_KEY"
 expire_access_token: False
 
 ## Signing Keys ##
 
-# TODO
+# TODO: check on this
 signing_key_path: "/var/lib/matrix-synapse/signing.key"
 old_signing_keys: {}
 key_refresh_interval: "1d" # 1 Day.

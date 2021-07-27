@@ -1,0 +1,12 @@
+#!/bin/sh
+
+apt -qqy install postgresql postgresql-contrib
+systemctl start postgresql
+systemctl enable postgresql
+
+sudo -u postgres createuser synapse
+sudo -u postgres createdb synapse
+sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE synapse TO synapse;"
+
+# security note:
+# synapse user password is set in the cloudinit firstboot script
