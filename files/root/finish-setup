@@ -64,14 +64,17 @@ if yn "Did you finish configuring DNS?"; then
     printf "Waiting for $domain to resolve to $myip... (this could take 5+ minutes)\n"
     until dig +short "$domain" | grep "$myip"; do
         printf "."
+        sleep 2
     done
     printf "Waiting for $chat_prefix to resolve to $myip... (this could take 5+ minutes)\n"
     until dig +short "$chat_prefix" | grep "$myip"; do
         printf "."
+        sleep 2
     done
     printf "Waiting for $matrix_prefix to resolve to $myip... (this could take 5+ minutes)\n"
     until dig +short "$matrix_prefix" | grep "$myip"; do
         printf "."
+        sleep 2
     done
 
     printf "Starting caddy (Reverse Proxy)...\n"
