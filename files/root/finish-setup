@@ -61,20 +61,20 @@ printf "$chat_prefix -> $myip\n"
 if yn "Did you finish configuring DNS?"; then
     sed "s/USERDOMAIN/$domain/g" -i /etc/caddy/Caddyfile
 
-    printf "Waiting for $domain to resolve to $myip... (this could take 5+ minutes)\n"
+    printf "Waiting for $domain to resolve to $myip... (this could take 20+ minutes)\n"
     until dig +short "$domain" | grep "$myip"; do
         printf "."
-        sleep 2
+        sleep 10
     done
-    printf "Waiting for $chat_prefix to resolve to $myip... (this could take 5+ minutes)\n"
+    printf "Waiting for $chat_prefix to resolve to $myip... (this could take 20+ minutes)\n"
     until dig +short "$chat_prefix" | grep "$myip"; do
         printf "."
-        sleep 2
+        sleep 10
     done
-    printf "Waiting for $matrix_prefix to resolve to $myip... (this could take 5+ minutes)\n"
+    printf "Waiting for $matrix_prefix to resolve to $myip... (this could take 20+ minutes)\n"
     until dig +short "$matrix_prefix" | grep "$myip"; do
         printf "."
-        sleep 2
+        sleep 10
     done
 
     printf "Starting caddy (Reverse Proxy)...\n"
