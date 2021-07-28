@@ -84,7 +84,9 @@ printf "Caddy configuration complete.\n"
 print_dots
 
 yn "Would you like to generate a matrix user?" && {
-    /root/new-user
+    printf "Username?\n> "
+    read username
+    /root/new-user "$username"
 }
 
 printf "Matrix configuration is complete! You should be able to login at https://$chat_prefix\n"
