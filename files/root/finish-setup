@@ -38,7 +38,7 @@ matrix_prefix="matrix.${domain}"
 chat_prefix="chat.${domain}"
 myip="$(hostname -I | awk '{print $1}')"
 
-printf "The domain you have entered is: $domain"
+printf "The domain you have entered is: $domain\n"
 yn "Is that correct?" || die "Exiting cowardly"
 
 sed "s/USERDOMAIN/$domain/g" -i /etc/matrix-synapse/conf.d/server_name.yaml
