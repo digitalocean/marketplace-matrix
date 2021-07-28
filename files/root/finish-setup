@@ -81,7 +81,7 @@ if yn "Did you finish configuring DNS?"; then
     systemctl enable caddy
     systemctl start caddy
 else
-    die "Cannot proceed unless DNS is configured."
+    die "Cannot proceed unless DNS is configured"
 fi
 printf "Caddy configuration complete.\n"
 print_dots
