@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# create a new matrix user
 
 printf "Username?\n> "
 read username

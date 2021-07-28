@@ -12,7 +12,7 @@ Welcome to DigitalOcean's 1-Click Matrix Droplet.
 To keep this Droplet secure, the UFW firewall is enabled.
 All ports are BLOCKED except 22 (SSH), 80 (HTTP), 443 (HTTPS), and 8448 (Matrix)
 
-You will find a suite of useful utilities in your home directory.
+See README.txt for some pro tips!
 
 Please run ./finish-setup to complete your Matrix installation!
 

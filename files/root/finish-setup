@@ -1,4 +1,10 @@
 #!/bin/sh -e
+#
+# finish the matrix installation
+
+glob() {
+    case $1 in $2) return 0; esac; return 1
+}
 
 yn() {
     printf '%s [y/n]: ' "$1"
@@ -32,7 +38,8 @@ matrix_prefix="matrix.${domain}"
 chat_prefix="chat.${domain}"
 myip="$(hostname -I | awk '{print $1}')"
 
-yn "The domain you have entered is: $domain\nIs that correct?" || die "Exiting cowardly"
+printf "The domain you have entered is: $domain"
+yn "Is that correct?" || die "Exiting cowardly"
 
 sed "s/USERDOMAIN/$domain/g" -i /etc/matrix-synapse/conf.d/server_name.yaml
 printf "Starting matrix-synapse (Synapse)...\n"
@@ -80,4 +87,4 @@ yn "Would you like to generate a matrix user?" && {
     /root/new-user
 }
 
-printf "Matrix configuration is complete! You should be able to login at $chat_prefix\n"
+printf "Matrix configuration is complete! You should be able to login at https://$chat_prefix\n"
