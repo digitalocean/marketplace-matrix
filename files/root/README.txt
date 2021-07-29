@@ -28,9 +28,9 @@ There several scripts in your home directory - this is what they do.
 
 UPGRADES
 --------
-I recommend upgrading both synapse and element-web at least once a month.
+It is recommended to upgrae synapse and element-web at least once a month.
 
-Please out for security vulnerabilities: https://matrix.org/blog/category/security
+Please watch out for security vulnerabilities: https://matrix.org/blog/category/security
 
 Upgrading is very simple.
 
