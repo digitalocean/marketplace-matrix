@@ -20,3 +20,10 @@ provide, the better the chat quality will be. 2GB+ RAM is highly recommended.
 4. Read /root/README.txt
 5. ???
 6. Profit!
+
+## Building the image
+
+```
+export DIGITALOCEAN_TOKEN=your_do_token
+packer build matrix.json
+```

@@ -1,11 +1,11 @@
 
 
-              IT'S DANGEROUS TO GO ALONE! TAKE THIS.
+                  IT'S DANGEROUS TO GO ALONE! TAKE THIS.
 
-                              ⚔️
+                                  ⚔️
 
 
-                  !Hello new Matrix operator!
+                      !Hello new Matrix operator!
 
 
 Operating a Matrix server is relatively simple, but there are some things you
