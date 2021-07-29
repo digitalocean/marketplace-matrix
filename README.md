@@ -1,4 +1,9 @@
-# Getting started after deploying Matrix
+# Matrix
+
+Matrix is an open source, decentralized, federated chat system. These are the
+build scripts for our 1-click app!
+
+https://marketplace.digitalocean.com/apps/matrix-synapse-backend
 
 ## Create your new server
 
@@ -27,3 +32,8 @@ provide, the better the chat quality will be. 2GB+ RAM is highly recommended.
 export DIGITALOCEAN_TOKEN=your_do_token
 packer build matrix.json
 ```
+
+## Supporting Matrix
+
+If you love Matrix as much as we do, please consider supporting their project!
+See the "Support Matrix" section of https://www.matrix.org/ for more details.
