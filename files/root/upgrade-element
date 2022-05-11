@@ -12,7 +12,7 @@ fi
 cd /opt
 wget "https://github.com/vector-im/element-web/releases/download/v$ELEMENT_VERSION/element-v$ELEMENT_VERSION.tar.gz"
 tar -zxvf "element-v$ELEMENT_VERSION.tar.gz"
-if [ ! -f "element-v$ELEMENT_VERSION.tar.gz" ]; then
+if [ ! -f "element-v$ELEMENT_VERSION/config.json" ]; then
     cp element/config.json "element-v$ELEMENT_VERSION"
 fi
 rm -f /opt/element
