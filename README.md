@@ -1,7 +1,7 @@
 # Matrix
 
 Matrix is an open source, decentralized, federated chat system. These are the
-build scripts for our 1-click app!
+build scripts for our 1-click app! :D
 
 https://marketplace.digitalocean.com/apps/matrix-synapse-backend
 
