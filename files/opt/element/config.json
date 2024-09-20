@@ -1,13 +1,14 @@
 {
+  "default_server_name": "USERDOMAIN",
   "default_server_config": {
     "m.homeserver": {
-      "base_url": "https://matrix.USERDOMAIN",
-      "server_name": "USERDOMAIN"
+      "base_url": "https://matrix.USERDOMAIN"
     },
     "m.identity_server": {
       "base_url": "https://vector.im"
     }
   },
+  "brand": "Element",
   "disable_custom_urls": true,
   "disable_guests": true,
   "disable_login_language_selector": true,
@@ -37,98 +38,5 @@
   "enable_presence_by_hs_url": {
     "https://matrix.org": false,
     "https://matrix-client.matrix.org": false
-  },
-  "jitsi": {
-    "preferredDomain": "jitsi.riot.im"
-  },
-  "settingDefaults": {
-    "breadcrumbs": false,
-    "hideAvatarChanges": true,
-    "UIFeature.registration": false,
-    "UIFeature.feedback": false,
-    "custom_themes": [
-      {
-        "name": "Discord Dark",
-        "is_dark": true,
-        "colors": {
-          "accent-color": "#747ff4",
-          "primary-color": "#00aff4",
-          "warning-color": "#faa81ad9",
-          "sidebar-color": "#202225",
-          "roomlist-background-color": "#2f3136",
-          "roomlist-text-color": "#dcddde",
-          "roomlist-text-secondary-color": "#8e9297",
-          "roomlist-highlights-color": "#4f545c52",
-          "roomlist-separator-color": "#40444b",
-          "timeline-background-color": "#36393f",
-          "timeline-text-color": "#dcddde",
-          "secondary-content": "#dcddde",
-          "tertiary-content": "#dcddde",
-          "timeline-text-secondary-color": "#b9bbbe",
-          "timeline-highlights-color": "#04040512",
-          "reaction-row-button-selected-bg-color": "#b9bbbe"
-        }
-      },
-      {
-        "name": "Geeko dark theme",
-        "is_dark": true,
-        "colors": {
-          "accent-color": "#73ba25",
-          "primary-color": "#35b9ab",
-          "warning-color": "#bf616a",
-          "sidebar-color": "#2a2a2a",
-          "roomlist-background-color": "#4a4a4a",
-          "roomlist-text-color": "#fff",
-          "roomlist-text-secondary-color": "#ddd",
-          "roomlist-highlights-color": "#2a2a2a",
-          "roomlist-separator-color": "#3a3a3a",
-          "timeline-background-color": "#3a3a3a",
-          "timeline-text-color": "#eee",
-          "timeline-text-secondary-color": "#6da741",
-          "timeline-highlights-color": "#bf616a",
-          "reaction-row-button-selected-bg-color": "#bf616a"
-        }
-      },
-      {
-        "name": "Selenized dark theme",
-        "is_dark": true,
-        "colors": {
-          "accent-color": "#41c7b9",
-          "primary-color": "#4695f7",
-          "warning-color": "#fa5750",
-          "sidebar-color": "#103c48",
-          "roomlist-background-color": "#184956",
-          "roomlist-text-color": "#dbb32d",
-          "roomlist-text-secondary-color": "#FFFFFF",
-          "roomlist-highlights-color": "#2d5b69",
-          "roomlist-separator-color": "#2d5b69",
-          "timeline-background-color": "#2d5b69",
-          "timeline-text-color": "#FFFFFF",
-          "timeline-text-secondary-color": "#72898f",
-          "timeline-highlights-color": "#184956",
-          "reaction-row-button-selected-bg-color": "#4695f7"
-        }
-      },
-      {
-        "name": "Luxury Dark theme",
-        "is_dark": true,
-        "colors": {
-          "accent-color": "#D9BC00",
-          "primary-color": "#FFDD00",
-          "warning-color": "#FBC403",
-          "sidebar-color": "#020F1B",
-          "roomlist-background-color": "#011223",
-          "roomlist-highlights-color": "#1E354A",
-          "roomlist-separator-color": "#05192D",
-          "roomlist-text-color": "#FFEC70",
-          "roomlist-text-secondary-color": "#FFF3A4",
-          "timeline-background-color": "#05192D",
-          "timeline-highlights-color": "#011223",
-          "timeline-text-color": "#FFF3A4",
-          "timeline-text-secondary-color": "#A79000",
-          "reaction-row-button-selected-bg-color": "#FFEC70"
-        }
-      }
-    ]
   }
 }
