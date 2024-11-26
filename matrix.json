@@ -1,16 +1,16 @@
 {
   "variables": {
     "do_token": "{{env `DIGITALOCEAN_TOKEN`}}",
-    "image_name": "matrix-debian-11-snapshot-{{timestamp}}",
+    "image_name": "matrix-debian-12-snapshot-{{timestamp}}",
     "apt_packages": "debian-keyring debian-archive-keyring lsb-release wget apt-transport-https sudo dnsutils",
-    "element_version": "1.11.23"
+    "element_version": "1.11.86"
   },
   "sensitive-variables": ["do_token"],
   "builders": [
     {
       "type": "digitalocean",
       "api_token": "{{user `do_token`}}",
-      "image": "debian-11-x64",
+      "image": "debian-12-x64",
       "region": "nyc3",
       "size": "s-1vcpu-1gb",
       "ssh_username": "root",
